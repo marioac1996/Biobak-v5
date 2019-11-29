@@ -10,19 +10,22 @@ import { FaunaService } from '../services/fauna.service';
   templateUrl: './faunalist.page.html',
   styleUrls: ['./faunalist.page.scss'],
 })
+
 export class FaunalistPage implements OnInit {
+
   
   especies: any[] = [];
   items: Array<any>;
-
+  listItems;
   constructor(
     public loadingCtrl: LoadingController,
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private navCtrl:NavController,
-    private faunaService: FaunaService
-  ) { }
+    private faunaService: FaunaService,
+  ) { 
+  }
 
   ngOnInit() {
     if (this.route && this.route.data) {
@@ -30,14 +33,25 @@ export class FaunalistPage implements OnInit {
     }
   
   }
-  // inicio del buscador
 
-  buscar(event){
-    console.log(event);
+  initializeItems(){ 
+    this.items = this.listItems;
+  }
+  getItems(ev:any) {
+    // Reset items back to all of the items
+    this.initializeItems();
 
+    // set val to the value of the searchbar
+    const val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.payload.doc.data().title.toLowerCase().includes(val.toLowerCase()));
+      })
+    }
+    
   }
 
-  //fin del buscador
   async getData(){
     const loading = await this.loadingCtrl.create({
       message: 'Por favor espere...'
@@ -48,6 +62,7 @@ export class FaunalistPage implements OnInit {
       routeData['data'].subscribe(data => {
         loading.dismiss();
         this.items = data;
+        this.listItems=data;
       })
     })
   }
