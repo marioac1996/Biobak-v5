@@ -68,6 +68,8 @@ export class FaunaService {
         description: value.description,
         scientificName: value.scientificName,
         type: value.type,
+        impactos : value.impactos,
+        bibliografia: value.bibliografia,
         mayaName: value.mayaName,
         image: value.image
       })

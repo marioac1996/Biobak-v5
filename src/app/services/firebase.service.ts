@@ -67,7 +67,9 @@ export class FirebaseService {
         scientificName: value.scientificName,
         type: value.type,
         mayaName: value.mayaName,
-        image: value.image
+        image: value.image,
+        impactos : value.impactos,
+        bibliografia: value.bibliografia
       })
       .then(
         res => resolve(res),

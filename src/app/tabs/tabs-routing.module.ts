@@ -59,6 +59,16 @@ const routes: Routes = [
             ]
         },
         {
+          path: 'geolocation',
+          children:
+            [
+              {
+                path: '',
+                loadChildren: '../geolocation/geolocation.module#GeolocationPageModule'
+              }
+            ]
+        },
+        {
           path: '',
           redirectTo: '/tabs/tab1',
           pathMatch: 'full'

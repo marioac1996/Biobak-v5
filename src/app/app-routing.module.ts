@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'eventdetails/:id', loadChildren: './eventdetails/eventdetails.module#EventdetailsPageModule', canActivate : [AuthGuard] },
   { path: 'new-report', loadChildren: './new-report/new-report.module#NewReportPageModule' },
   { path: 'report', loadChildren: './report/report.module#ReportPageModule', canActivate : [AuthGuard] },
-  { path: 'inforeport/:id', loadChildren: './inforeport/inforeport.module#InforeportPageModule', canActivate : [AuthGuard] },
+  { path: 'inforeport/:id', loadChildren: './inforeport/inforeport.module#InforeportPageModule', canActivate : [AuthGuard] },  { path: 'geolocation', loadChildren: './geolocation/geolocation.module#GeolocationPageModule' },
+
 ];
 @NgModule({
   imports:

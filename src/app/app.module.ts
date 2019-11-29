@@ -20,7 +20,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { NewTaskModalPage } from './new-task-modal/new-task-modal.page';
-
+import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireStorageModule, // imports firebase/storage
   ],
   providers: [
+    Geolocation,
     StatusBar,
     SplashScreen,
     ImagePicker,

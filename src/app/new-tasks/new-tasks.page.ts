@@ -36,6 +36,8 @@ export class NewTasksPage implements OnInit {
       description: new FormControl('', Validators.required),
       scientificName: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required),
+      impactos: new FormControl('', ),
+      bibliografia: new FormControl('', ),
       mayaName: new FormControl('', Validators.required)
     });
   }
@@ -47,6 +49,8 @@ export class NewTasksPage implements OnInit {
       scientificName: value.scientificName,
       mayaName: value.mayaName,
       type: value.type,
+      impactos: value.impactos,
+      bibliografia: value.bibliografia,
       image: this.image
     }
     this.firebaseService.createTask(data)
