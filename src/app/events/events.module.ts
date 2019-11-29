@@ -1,0 +1,34 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
+import { IonicModule } from '@ionic/angular';
+
+import { EventsPage } from './events.page';
+import { EventsResolver } from './Events.resolver';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: EventsPage,
+    resolve: {
+      data: EventsResolver
+    }
+  }
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    IonicModule,
+    RouterModule.forChild(routes)
+  ],
+  declarations: [EventsPage],
+  providers: [
+    EventsResolver
+  ]
+})
+export class EventsPageModule {}

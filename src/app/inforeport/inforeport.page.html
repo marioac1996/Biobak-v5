@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+          </ion-buttons>
+      <ion-title>Reporte Incidente</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <div>
+          <ion-row>
+              <img src="{{item.image}}" style="display:block;margin:auto;"/>
+          </ion-row>
+        </div>
+      <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              <p><b>Asunto: </b>{{item.affair}}</p>
+              </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-card-title>
+              <p><b>Ubicación: </b>{{item.address}}</p>
+              <p><b>Fecha: </b>{{item.date}}</p>
+              <p><b>Hora: </b>{{item.hrs}}</p>
+              </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      <ion-card>
+        <ion-card-content style="text-align: justify;">
+          <b style="color:black">Detalles: </b>
+          <ion-text  color="dark">{{item.description}}</ion-text>
+      </ion-card-content>
+      </ion-card>
+      <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Eliminar</ion-button>
+    </ion-content>

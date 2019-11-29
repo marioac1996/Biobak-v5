@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/new-task']">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Administrador</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="items" class="list-mini-content" padding>
+    <p>
+        <ion-chip outline color="primary" [routerLink]="['/fauna']">
+          <ion-icon name="bug"></ion-icon>
+          <ion-label>Fauna</ion-label>
+        </ion-chip>
+        <ion-chip outline color="tertiary" [routerLink]="['/events']">
+          <ion-icon name="globe"></ion-icon>
+          <ion-label>Eventos</ion-label>
+        </ion-chip>
+        <ion-chip outline color="secondary" [routerLink]="['/report']">
+          <ion-icon name="attach"></ion-icon>
+          <ion-label>Reportes</ion-label>
+        </ion-chip>
+      </p>
+      <ion-list lines="none">
+        <ion-list-header>
+          <ion-label><ion-card-title><b>FLORA</b></ion-card-title></ion-label>
+          
+        </ion-list-header>
+      </ion-list>
+  <div *ngIf="items.length > 0" class="list-mini">
+    <ion-list>
+      <ion-item *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
+        <ion-thumbnail slot="start">
+          <img [src]="item.payload.doc.data().image">
+        </ion-thumbnail>
+        <ion-label>{{item.payload.doc.data().title}}</ion-label>
+        <ion-button fill="clear" slot="end">Editar</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="items.length == 0" class="empty-list">
+    Todavía no hay flora agregada.
+  </div>
+</ion-content>
+<ion-footer (click)="logout()">
+  <ion-toolbar color="medium">
+    <ion-title>Cerrar Sesión</ion-title>
+  </ion-toolbar>
+</ion-footer>

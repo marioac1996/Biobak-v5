@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <ion-row>
+            <img src="{{item.image}}" style="display:block;margin:auto;"/>
+        </ion-row>
+      </div>
+    <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+            <p><b>Evento: </b>{{item.title}}</p>
+            </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>
+            <p><b>Dirección: </b>{{item.address}}</p>
+            <p><b>Fecha: </b>{{item.date}}</p>
+            <p><b>Hora: </b>{{item.hrs}}</p>
+            </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    <ion-card>
+      <ion-card-content style="text-align: justify;">
+        <b style="color:black">Descripción: </b>
+        <ion-text  color="dark">{{item.description}}</ion-text>
+    </ion-card-content>
+    </ion-card>
+  </ion-content>

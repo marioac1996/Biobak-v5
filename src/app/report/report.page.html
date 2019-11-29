@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="warning">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content *ngIf="items" class="list-mini-content" padding>
+    <div *ngIf="items.length > 0" class="list-mini">
+      <ion-list>
+        <ion-item *ngFor="let item of items" [routerLink]="['/inforeport', item.payload.doc.id]">
+          <ion-thumbnail slot="start">
+            <img [src]="item.payload.doc.data().image">
+          </ion-thumbnail>
+          <ion-label>{{item.payload.doc.data().affair}}</ion-label>
+          <ion-button fill="clear" slot="end">VER</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="items.length == 0" class="empty-list">
+      Todavía no hay reportes
+    </div>
+  </ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "BioBak",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

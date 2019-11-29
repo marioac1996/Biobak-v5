@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nueva Flora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-row no-padding>
+      <ion-col size="6" offset="3">
+        <img [src]="image" alt="this is the image"/>
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col size="6" offset="3">
+        <ion-button fill="outline" expand="block" size="small" (click)="openImagePicker()">Cambiar Imagen</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Nombre</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Nombre Científico</ion-label>
+        <ion-input type="text" formControlName="scientificName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Nombre Maya</ion-label>
+      <ion-input type="text" formControlName="mayaName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Clase</ion-label>
+      <ion-input type="text" formControlName="type"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Descripción</ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-button class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Agregar</ion-button>
+  </form>
+</ion-content>

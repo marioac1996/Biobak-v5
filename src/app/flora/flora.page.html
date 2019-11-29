@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Flora</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="items" class="card-background-page" padding>
+  <div *ngIf="items.length > 0" class="list-mini">
+    <ion-list>
+      <ion-card *ngFor="let item of items" [routerLink]="['/infoflora', item.payload.doc.id]">
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="item.payload.doc.data().image">
+          </ion-avatar>
+          <h1 style="margin:10px;">{{item.payload.doc.data().title}}</h1>
+        </ion-item>
+        <ion-row>
+          <ion-col item-end>
+            <ion-badge color="secondary">Clase: {{item.payload.doc.data().type}} </ion-badge>
+          </ion-col>
+      </ion-row>
+      </ion-card>
+    </ion-list>
+  </div>
+  <div *ngIf="items.length == 0" class="empty-list">
+    Todavia no hay información
+  </div>
+</ion-content>
+

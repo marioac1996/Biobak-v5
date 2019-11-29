@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-button [routerLink]="['/new-tasks']">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    <ion-title>Fauna</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content *ngIf="items" class="list-mini-content" padding>
+    <div *ngIf="items.length > 0" class="list-mini">
+      <ion-list>
+        <ion-item *ngFor="let item of items" [routerLink]="['/details2', item.payload.doc.id]">
+          <ion-thumbnail slot="start">
+            <img [src]="item.payload.doc.data().image">
+          </ion-thumbnail>
+          <ion-label>{{item.payload.doc.data().title}}</ion-label>
+          <ion-button fill="clear" slot="end">Editar</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="items.length == 0" class="empty-list">
+      Todavía no hay fauna agregada
+    </div>
+  </ion-content>
