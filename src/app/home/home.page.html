@@ -24,6 +24,7 @@
         </ion-chip>
       </p>
       <ion-list lines="none">
+        <ion-searchbar animated type="text" placeholder="Buscar Flora" debounce="500" (ionInput)="getItems($event)"></ion-searchbar>
         <ion-list-header>
           <ion-label><ion-card-title><b>FLORA</b></ion-card-title></ion-label>
           
