@@ -21,6 +21,7 @@
           <ion-label><ion-card-title><b>EVENTOS</b></ion-card-title></ion-label>
           
         </ion-list-header>
+        <ion-searchbar animated type="text" placeholder="Buscar Eventos" debounce="500" (ionInput)="getItems($event)"></ion-searchbar>
         <ion-item-divider></ion-item-divider>
       </ion-list>
   <div *ngIf="items.length > 0" class="list-mini">

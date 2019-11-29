@@ -12,6 +12,8 @@ import {NavController} from '@ionic/angular';
 export class ReportPage implements OnInit {
 
   items: Array<any>;
+  listItems;
+
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -26,6 +28,23 @@ export class ReportPage implements OnInit {
       this.getData();
     }
   }
+  initializeItems(){ 
+    this.items = this.listItems;
+  }
+  getItems(ev:any) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set val to the value of the searchbar
+    const val = ev.target.value;
+
+    if (val && val.trim() != '') {
+      this.items = this.items.filter((item) => {
+        return (item.payload.doc.data().title.toLowerCase().includes(val.toLowerCase()));
+      })
+    }
+    
+  }
   async getData(){
     const loading = await this.loadingCtrl.create({
       message: 'Por favor espere...'
@@ -36,6 +55,7 @@ export class ReportPage implements OnInit {
       routeData['data'].subscribe(data => {
         loading.dismiss();
         this.items = data;
+        this.listItems=data;
       })
     })
   }
