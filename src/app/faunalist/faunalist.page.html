@@ -2,8 +2,9 @@
   <ion-toolbar color="primary">
     <ion-title>Fauna</ion-title>
   </ion-toolbar>
-  <ion-searchbar animated (ionChange)="buscar($event)"></ion-searchbar>
+  <ion-searchbar animated type="text" placeholder="Buscar Fauna" debounce="500" (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
+
 <ion-content *ngIf="items" class="card-background-page" padding>
   <div *ngIf="items.length > 0" class="list-mini">
     <ion-list>
