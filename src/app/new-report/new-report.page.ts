@@ -31,7 +31,7 @@ export class NewReportPage implements OnInit {
   }
 
   resetFields(){
-    this.image = "./assets/imgs/logoecobak.jpeg";
+    this.image = "./assets/imgs/logoecobak.jpg";
     this.validations_form = this.formBuilder.group({
       description: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
